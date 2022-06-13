@@ -52,7 +52,6 @@ object UrlValidator {
         }
 
         if (hostname.length > 255) validationErrors += "Hostname is too long (${hostname.length} > 255)"
-        if (!hostname.contains('.')) validationErrors += "Hostname without dot"
         hostname.split('.').forEach { label ->
             if (label.isBlank()) {
                 validationErrors += "Blank hostname label"

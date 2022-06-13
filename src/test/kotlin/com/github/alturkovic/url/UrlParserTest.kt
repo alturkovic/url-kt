@@ -78,6 +78,21 @@ internal class UrlParserTest {
     }
 
     @Test
+    internal fun shouldParseHostnameWithSingleLabel() {
+        assertUrlParsing(
+            url = "https://localhost:8080",
+            expected = Url(
+                protocol = HTTPS,
+                host = Host(
+                    hostname = "localhost",
+                    port = 8080
+                ),
+            ),
+            expectedUrl = "https://localhost:8080"
+        )
+    }
+
+    @Test
     internal fun shouldParseHostnameOnlyUrls() {
         assertUrlParsing(
             url = "example.com",

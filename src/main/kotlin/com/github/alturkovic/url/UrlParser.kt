@@ -37,13 +37,13 @@ object UrlParser {
     /**
      * Parse [url] into a valid [Url].
      */
-    fun parse(url: String): Url {
+    fun parse(url: String, defaultProtocol: HttpProtocol = HTTPS): Url {
         if (url.isBlank()) throw UrlParseException("Cannot parse blank url")
 
         val parser = Parser(url)
 
         val parsedUrl = Url(
-            protocol = parser.extractHttpProtocol() ?: HTTPS,
+            protocol = parser.extractHttpProtocol() ?: defaultProtocol,
             userInfo = parser.extractUserInfo(),
             host = parser.extractHost(),
             path = parser.extractPath(),

@@ -35,7 +35,6 @@ internal class UrlValidatorTest {
 
     @ParameterizedTest
     @ValueSource(strings = [
-        "http://example",
         "http://www.example..com",
         "http://www.sub.-example.com",
         "http://www.exam!ple.com",

@@ -73,6 +73,12 @@ UrlEquality.check(
     .build().asString() // https://example.com/a/b
 ```
 
+## Gotchas
+
+When defining a custom port, you **must** specify the protocol because otherwise there is no distinction if the part before ':' defines the protocol or the host.
+
+Default protocol used for parsing is HTTPS, but can be switched to HTTPS by calling `UrlParser.parse(url, HTTP)`
+
 ## Importing into your project using Maven
 
 Add the JitPack repository to your `pom.xml`.
@@ -93,6 +99,6 @@ Add the following under your `<dependencies>`:
 <dependency>
     <groupId>com.github.alturkovic</groupId>
     <artifactId>url-kt</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
